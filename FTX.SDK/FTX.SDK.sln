@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTX.SDK", "FTX.SDK\FTX.SDK.csproj", "{D1312860-024E-4D21-B99A-17E1CC9F7B8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTX.SDKTests", "FTX.SDKTests\FTX.SDKTests.csproj", "{A842D66F-D616-4F9F-A4BC-49A721140E07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{687637D0-9E8B-4986-AC86-B9C2375ABCC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{9E3652C4-C876-440A-8644-7DFA015EDF35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0F11A29A-69F2-4B7F-855E-F89A717EB29F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentations", "{F8EDA377-93D7-4FCF-937F-6D27CE64E955}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{01A0C974-8F65-42D7-AB94-D1653F311107}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTXConsole", "FTX.Console\FTXConsole.csproj", "{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1312860-024E-4D21-B99A-17E1CC9F7B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1312860-024E-4D21-B99A-17E1CC9F7B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1312860-024E-4D21-B99A-17E1CC9F7B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1312860-024E-4D21-B99A-17E1CC9F7B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A842D66F-D616-4F9F-A4BC-49A721140E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A842D66F-D616-4F9F-A4BC-49A721140E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A842D66F-D616-4F9F-A4BC-49A721140E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A842D66F-D616-4F9F-A4BC-49A721140E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1312860-024E-4D21-B99A-17E1CC9F7B8D} = {01A0C974-8F65-42D7-AB94-D1653F311107}
+		{A842D66F-D616-4F9F-A4BC-49A721140E07} = {0F11A29A-69F2-4B7F-855E-F89A717EB29F}
+		{0F11A29A-69F2-4B7F-855E-F89A717EB29F} = {9E3652C4-C876-440A-8644-7DFA015EDF35}
+		{F8EDA377-93D7-4FCF-937F-6D27CE64E955} = {9E3652C4-C876-440A-8644-7DFA015EDF35}
+		{01A0C974-8F65-42D7-AB94-D1653F311107} = {9E3652C4-C876-440A-8644-7DFA015EDF35}
+		{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A} = {F8EDA377-93D7-4FCF-937F-6D27CE64E955}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6630DF21-F061-4621-B8B7-448F6FE78F73}
+	EndGlobalSection
+EndGlobal
