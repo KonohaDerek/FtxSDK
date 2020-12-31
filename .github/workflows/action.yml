@@ -2,9 +2,9 @@ name: FTX Spot Margin Leading Update
 
 on:
   # push 到 master 分支時會觸發
-  #push:
-  #  branches:
-  #  - master
+  push:
+   branches:
+   - master
   # 排程每每小時觸發
   # 語法可上 crontab.guru 查詢
   schedule:
