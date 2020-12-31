@@ -33,5 +33,4 @@ jobs:
         FTX_SECRET: ${{ secrets.FTX_SECRET }}
         FTX_KEY: ${{ secrets.FTX_KEY }}
       run: 
-        dotnet build --project FTX.SDK/FTX.SDK.sln
-        dotnet run --project FTX.SDK/FTXConsole.csproj
+        dotnet run  ./FTX.SDK/FTX.Console/FTXConsole.csproj
