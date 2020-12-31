@@ -33,5 +33,6 @@ jobs:
         FTX_SECRET: ${{ secrets.FTX_SECRET }}
         FTX_KEY: ${{ secrets.FTX_KEY }}
       run: |-
-        dotnet build  ./FTX.SDK/FTX.Console/FTXConsole.csproj
-        dotnet run  ./FTX.SDK/FTX.Console/
+        dotnet build  ./FTX.SDK/FTX.Console/FTXConsole.csproj -c Release -o /app/build
+        dotnet publish ./FTX.SDK/FTX.Console/FTXConsole.csproj -c Release -o ./app/publish
+        dotnet ./app/publish/FTXConsole.dll
