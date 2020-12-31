@@ -32,6 +32,6 @@ jobs:
         # 取得在 Secrets 所設定的加密變數
         FTX_SECRET: ${{ secrets.FTX_SECRET }}
         FTX_KEY: ${{ secrets.FTX_KEY }}
-      run: 
-        ls
-        #dotnet run  ./FTX.SDK/FTX.Console/FTXConsole.csproj
+      run: |-
+        dotnet build  ./FTX.SDK/FTX.Console/FTXConsole.csproj
+        dotnet run  ./FTX.SDK/FTX.Console/
