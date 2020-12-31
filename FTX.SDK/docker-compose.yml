@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  ftxconsole:
+    image: ${DOCKER_REGISTRY-}ftxconsole
+    build:
+      context: .
+      dockerfile: FTX.Console/Dockerfile

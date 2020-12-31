@@ -13,9 +13,9 @@ namespace FTX.SDK.Response
     public class SpotMarginLendingInfoDto
     {
         public string coin { get; set; }
-        public double lendable { get; set; }
-        public double minRate { get; set; }
-        public double locked { get; set; }
-        public double offered { get; set; }
+        public float lendable { get; set; }
+        public float minRate { get; set; }
+        public float locked { get; set; }
+        public float offered { get; set; }
     }
 }

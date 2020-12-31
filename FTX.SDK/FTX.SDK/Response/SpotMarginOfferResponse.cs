@@ -13,7 +13,7 @@ namespace FTX.SDK.Response
     public class SpotMarginOfferDto
     {
         public string coin { get; set; }
-        public double size { get; set; }
-        public double rate { get; set; }
+        public float size { get; set; }
+        public float rate { get; set; }
     }
 }

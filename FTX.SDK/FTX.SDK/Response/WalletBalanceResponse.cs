@@ -12,11 +12,11 @@ namespace FTX.SDK.Response
     }
     public class WalletBalanceDto
     {
-        public double availableWithoutBorrow { get; set; }
+        public float availableWithoutBorrow { get; set; }
         public string coin { get; set; }
-        public double free { get; set; }
-        public double spotBorrow { get; set; }
-        public double total { get; set; }
-        public double usdValue { get; set; }
+        public float free { get; set; }
+        public float spotBorrow { get; set; }
+        public float total { get; set; }
+        public float usdValue { get; set; }
     }
 }

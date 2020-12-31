@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTX.SDK", "FTX.SDK\FTX.SDK.csproj", "{D1312860-024E-4D21-B99A-17E1CC9F7B8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FTX.SDK", "FTX.SDK\FTX.SDK.csproj", "{D1312860-024E-4D21-B99A-17E1CC9F7B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTX.SDKTests", "FTX.SDKTests\FTX.SDKTests.csproj", "{A842D66F-D616-4F9F-A4BC-49A721140E07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FTX.SDKTests", "FTX.SDKTests\FTX.SDKTests.csproj", "{A842D66F-D616-4F9F-A4BC-49A721140E07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{687637D0-9E8B-4986-AC86-B9C2375ABCC5}"
 EndProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentati
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{01A0C974-8F65-42D7-AB94-D1653F311107}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTXConsole", "FTX.Console\FTXConsole.csproj", "{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FTXConsole", "FTX.Console\FTXConsole.csproj", "{ECEDD5A9-DD57-49E5-AA75-06183C5F0E7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
