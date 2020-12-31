@@ -9,6 +9,17 @@ namespace FTXConsole
     {
         static void Main(string[] args)
         {
+            var currency = "USD";
+            if (args.Length == 0)
+            {
+                Console.WriteLine($"Use Default Currency : {currency}");
+            }
+            else
+            {
+                currency = args[0];
+                Console.WriteLine($"Run With Currency : {currency}");
+            }
+
             Console.WriteLine($"{DateTime.Now} :  Start Run Update Spot Margin Leading");
             var secret = Environment.GetEnvironmentVariable("FTX_SECRET");
             var key = Environment.GetEnvironmentVariable("FTX_KEY");
@@ -27,7 +38,7 @@ namespace FTXConsole
             var client = new FtxClient(secret, key);
             var infos = client.GetSpotMarginLendingInfo();
             // select usd info
-            var usd_info = infos.Where(o => o.coin == "usd".ToUpper()).FirstOrDefault();
+            var usd_info = infos.Where(o => o.coin == currency.ToUpper()).FirstOrDefault();
             if(usd_info != null)
             {
                 var source = (float)Math.Floor(usd_info.offered * 1000000) / 1000000;
@@ -60,7 +71,7 @@ namespace FTXConsole
                     }
                     catch (Exception ex)
                     {
-                        leadableUsd -= 0.01F;
+                        leadableUsd -= 0.00001F;
                         Console.WriteLine($"{DateTime.Now}: Update USD Spot Margin Leading Faild , {ex.Message}");
                         Console.WriteLine($"{DateTime.Now}: Change leadableUsd to {leadableUsd}");
                     }
