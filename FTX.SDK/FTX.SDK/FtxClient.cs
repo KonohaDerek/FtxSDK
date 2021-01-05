@@ -14,12 +14,15 @@ namespace FTX.SDK
 
         private readonly string _Key;
 
+        private readonly string _SUBACCOUNT;
+
         private string ServerUrl => "https://ftx.com";
 
-        public FtxClient(string secret , string key)
+        public FtxClient(string secret , string key,string subaccount = "")
         {
             this._Secret = secret;
             this._Key = key;
+            this._SUBACCOUNT = subaccount;
         }
 
         public string GetAccount()
@@ -27,17 +30,7 @@ namespace FTX.SDK
             var method = Method.GET;
             var endpoint = $"/api/account";
             var client = new RestClient(ServerUrl);
-            var request = new RestRequest(endpoint, Method.GET);
-            var _nonce = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
-            var hashMaker = new HMACSHA256(Encoding.UTF8.GetBytes(_Secret));
-            var signaturePayload = $"{_nonce}{method.ToString().ToUpper()}{endpoint}";
-            var hash = hashMaker.ComputeHash(Encoding.UTF8.GetBytes(signaturePayload));
-            var hashString = BitConverter.ToString(hash).Replace("-", string.Empty);
-            var signature = hashString.ToLower();
-
-            request.AddHeader("FTX-KEY", _Key);
-            request.AddHeader("FTX-SIGN", signature);
-            request.AddHeader("FTX-TS", _nonce.ToString());
+            var request = GetAuthRequest(endpoint, method);
             var response = client.Execute(request);
             if (response.IsSuccessful)
             {
@@ -142,6 +135,8 @@ namespace FTX.SDK
             request.AddHeader("FTX-KEY", _Key);
             request.AddHeader("FTX-SIGN", signature);
             request.AddHeader("FTX-TS", _nonce.ToString());
+            if(!string.IsNullOrWhiteSpace(_SUBACCOUNT))
+                request.AddHeader("FTX-SUBACCOUNT", _SUBACCOUNT);
             return request;
         }
 
