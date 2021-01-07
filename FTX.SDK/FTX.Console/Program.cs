@@ -46,11 +46,11 @@ namespace FTXConsole
                 Console.WriteLine($"{DateTime.Now}: Can't Find `FTX_KEY` Environment Variable");
                 return;
             }
-
+            currency = currency.ToUpper();
             var client = new FtxClient(secret, key , subAccount);
             var infos = client.GetSpotMarginLendingInfo();
             // select usd info
-            var usd_info = infos.Where(o => o.coin == currency.ToUpper()).FirstOrDefault();
+            var usd_info = infos.Where(o => o.coin == currency).FirstOrDefault();
             if(usd_info != null)
             {
                 var source = (float)Math.Floor(usd_info.offered * 1000000) / 1000000;
@@ -64,12 +64,14 @@ namespace FTXConsole
                     {
                         if (leadableUsd < usd_info.locked )
                         {
-                            Console.WriteLine($"{DateTime.Now}: Update USD Spot Margin Leading Faild New LeadableUSD Less Than Now LeadableUSD");
+                            Console.WriteLine($"{DateTime.Now}:New Leadable {leadableUsd}({currency})");
+                            Console.WriteLine($"{DateTime.Now}:Now Leadable {usd_info.locked}({currency})");
+                            Console.WriteLine($"{DateTime.Now}: Update USD Spot Margin Leading Faild New Leadable Less Than Now Leadable");
                             return;
                         }
                         if ( retry_times > 5)
                         {
-                            Console.WriteLine($"{DateTime.Now}: Update USD Spot Margin Leading Faild Over Retry Times");
+                            Console.WriteLine($"{DateTime.Now}: Update {currency} Spot Margin Leading Faild Over Retry Times");
                             return;
                         }
                         var response = client.PostSpotMarginOffers(new PostSpotMarginOffersRequest()
@@ -78,21 +80,21 @@ namespace FTXConsole
                             rate = rate,
                             size = leadableUsd
                         });
-                        Console.WriteLine($"{DateTime.Now}: Update USD Spot Margin Leading Success");
+                        Console.WriteLine($"{DateTime.Now}: Update {currency} Spot Margin Leading With {leadableUsd} Success");
                         break;
                     }
                     catch (Exception ex)
                     {
                         leadableUsd -= 0.00001F;
-                        Console.WriteLine($"{DateTime.Now}: Update USD Spot Margin Leading Faild , {ex.Message}");
-                        Console.WriteLine($"{DateTime.Now}: Change leadableUsd to {leadableUsd}");
+                        Console.WriteLine($"{DateTime.Now}: Update {currency} Spot Margin Leading Faild , {ex.Message}");
+                        Console.WriteLine($"{DateTime.Now}: Change leadable to {leadableUsd}({currency})");
                     }
                     retry_times++;
                 } while (true);
             }
             else
             {
-                Console.WriteLine($"{DateTime.Now}: Can't Find USD Spot Margin Leading");
+                Console.WriteLine($"{DateTime.Now}: Can't Find {currency} Spot Margin Leading");
             }
             Console.WriteLine($"{DateTime.Now} :  Complete Update Spot Margin Leading");
 
