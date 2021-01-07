@@ -10,15 +10,27 @@ namespace FTXConsole
         static void Main(string[] args)
         {
             var currency = "USD";
-            if (args.Length == 0)
+            var subAccount = "";
+            for (int i=0;i< args.Length;i++)
             {
-                Console.WriteLine($"Use Default Currency : {currency}");
+                if (string.IsNullOrWhiteSpace(args[i]))
+                {
+                    break;
+                }
+
+                switch (i)
+                {
+                    case 0:
+                        currency = args[0];
+                        break;
+                    case 1:
+                        subAccount = args[1];
+                        break;
+                    default:
+                        break;
+                }
             }
-            else
-            {
-                currency = args[0];
-                Console.WriteLine($"Run With Currency : {currency}");
-            }
+            Console.WriteLine($"Run With Currency : {currency}");
 
             Console.WriteLine($"{DateTime.Now} :  Start Run Update Spot Margin Leading");
             var secret = Environment.GetEnvironmentVariable("FTX_SECRET");
@@ -35,7 +47,7 @@ namespace FTXConsole
                 return;
             }
 
-            var client = new FtxClient(secret, key);
+            var client = new FtxClient(secret, key , subAccount);
             var infos = client.GetSpotMarginLendingInfo();
             // select usd info
             var usd_info = infos.Where(o => o.coin == currency.ToUpper()).FirstOrDefault();
