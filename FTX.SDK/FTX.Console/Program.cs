@@ -85,8 +85,10 @@ namespace FTXConsole
                     }
                     catch (Exception ex)
                     {
-                        leadableUsd -= 0.00001F;
                         Console.WriteLine($"{DateTime.Now}: Update {currency} Spot Margin Leading Faild , {ex.Message}");
+                         Console.WriteLine($"{leadableUsd}({currency})");
+                        leadableUsd -= 0.0001F;
+                        Console.WriteLine($"{leadableUsd}({currency})");
                         Console.WriteLine($"{DateTime.Now}: Change leadable to {leadableUsd}({currency})");
                     }
                     retry_times++;
@@ -97,9 +99,6 @@ namespace FTXConsole
                 Console.WriteLine($"{DateTime.Now}: Can't Find {currency} Spot Margin Leading");
             }
             Console.WriteLine($"{DateTime.Now} :  Complete Update Spot Margin Leading");
-
-
-
         }
     }
 }
